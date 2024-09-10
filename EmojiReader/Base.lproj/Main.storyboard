@@ -63,6 +63,7 @@
                                     <outlet property="descriptionLabel" destination="vtH-MS-r33" id="f8l-k8-YDy"/>
                                     <outlet property="emojiLabel" destination="T1K-8K-SKC" id="xmM-hd-y3K"/>
                                     <outlet property="nameLabel" destination="uJT-um-L27" id="mWR-2h-UyE"/>
+                                    <segue destination="Sye-NR-iw7" kind="show" identifier="editEmoji" id="F7f-9F-5aS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -183,19 +184,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fWX-Sb-QLk">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aa8-XK-LoT"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="pN9-HR-bAW"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aa8-XK-LoT">
+                            <connections>
+                                <segue destination="VZs-n6-vZF" kind="unwind" unwindAction="unwindSegueWithSegue:" id="BFo-m5-OZ8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="pN9-HR-bAW">
+                            <connections>
+                                <segue destination="VZs-n6-vZF" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="Srj-i2-E5L"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="aZg-gz-fDR" id="rnF-ei-vob"/>
                         <outlet property="emojiTextField" destination="CYJ-Ro-pkx" id="TQc-h3-mkz"/>
                         <outlet property="nameTextField" destination="y7e-ug-OhU" id="pvi-x8-n8y"/>
-                        <outlet property="saveBatton" destination="pN9-HR-bAW" id="X8i-eI-Niv"/>
+                        <outlet property="saveButton" destination="pN9-HR-bAW" id="X8i-eI-Niv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uA7-tt-HPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VZs-n6-vZF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2646.5648854961833" y="-46.478873239436624"/>
+            <point key="canvasLocation" x="2660" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LkS-mT-vGT">
@@ -235,6 +245,9 @@
             <point key="canvasLocation" x="1719.8473282442746" y="-46.478873239436624"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="F7f-9F-5aS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
